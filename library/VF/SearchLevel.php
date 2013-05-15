@@ -40,7 +40,7 @@ class VF_SearchLevel
     protected function _display()
     {
         ob_start();
-        if ($this->helper()->showLabels() || 'true' == strtolower($this->helper()->showLabels()) ) {
+        if ($this->helper()->showLabels() === true || 'true' == strtolower($this->helper()->showLabels()) ) {
             echo '<label>';
             echo $this->__(ucfirst($this->level));
             echo ':</label>';
