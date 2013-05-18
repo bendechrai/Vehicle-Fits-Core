@@ -89,7 +89,7 @@ for( $i = 0; $i < $c - 1; $i++ )
         var loadingText = '<option value="0"><?=htmlentities( addslashes( $this->loadingText() ) )?></option>';
         
         if(jQuery('.<?=str_replace(' ','_',$levels[ $i + 1 ])?>_startSelect').size()) {
-            var url = getUrl( jQuery(this).parent('form'), '<?=str_replace(' ','_',$levels[ $i + 1 ])?>' );
+            var url = getUrl( jQuery(jQuery(this).parents('form')[0]), '<?=str_replace(' ','_',$levels[ $i + 1 ])?>' );
             jQuery(this).nextAll('.<?=str_replace(' ','_',$levels[ $i + 1 ])?>_startSelect').html( loadingText );
             jQuery(this).nextAll('.<?=str_replace(' ','_',$levels[ $i + 1 ])?>_endSelect').html( loadingText );
             jQuery(this).nextAll('.<?=str_replace(' ','_',$levels[ $i + 1 ])?>_startSelect').load( url, {}, function(responseText) {
@@ -101,7 +101,7 @@ for( $i = 0; $i < $c - 1; $i++ )
                 callbackFunc.apply( this );
             });  
         } else {
-            var url = getUrl( jQuery(this).parent('form'), '<?=str_replace(' ','_',$levels[ $i + 1 ])?>' );
+            var url = getUrl( jQuery(jQuery(this).parents('form')[0]), '<?=str_replace(' ','_',$levels[ $i + 1 ])?>' );
             jQuery(this).nextAll('.<?=str_replace(' ','_',$levels[ $i + 1 ])?>Select').html( loadingText );
             jQuery(this).nextAll('.<?=str_replace(' ','_',$levels[ $i + 1 ])?>Select').load( url, {}, function(responseText) {
                 jQuery(this).html(responseText);
