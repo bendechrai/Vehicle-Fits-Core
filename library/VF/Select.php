@@ -51,6 +51,7 @@ class VF_Select extends Zend_Db_Select
             $table = 'elite_level_' . $this->getSchema()->id() . '_' . $level;
             $condition = "{$table}.id = {$fromTable}.{$level}_id";
             $this->joinLeft($table, $condition, array($level => 'title', $level . '_id' => 'id'));
+            $this->order("$table.title");
         }
         return $this;
     }
